@@ -1,1 +1,9 @@
-# Forecasting_of_Smart_City_Traffic_Patterns_upskillcampus_Edunet_DSML_Internship
+# Traffic Prediction App 🚦
+
+A FastAPI web app that predicts traffic volume using a trained ML model.
+Model is automatically downloaded from Hugging Face Hub.
+
+## Run Locally
+
+```bash
+uvicorn main:app --reload

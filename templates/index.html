@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #34495e;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #2980b9;
+            background-color: #ecf6fd;
+        }
+
+        .submit-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #3498db;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        .form-description {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-error {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Traffic Prediction</h1>
+        <p class="form-description">Enter the details below to predict the traffic volume for a specific junction and time.</p>
+
+        <form id="predictionForm" action="/predict" method="post">
+            <div class="form-group">
+                <label for="Junction">Junction ID</label>
+                <input type="number" id="Junction" name="Junction" required>
+                <span class="input-error" id="junctionError">Please enter a valid junction ID.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="Hour">Hour of the Day</label>
+                <input type="number" id="Hour" name="Hour" min="0" max="23" required>
+                <span class="input-error" id="hourError">Please enter a valid hour (0-23).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="DayOfWeek">Day of the Week (0=Monday)</label>
+                <input type="number" id="DayOfWeek" name="DayOfWeek" min="0" max="6" required>
+                <span class="input-error" id="dayOfWeekError">Please enter a valid day (0-6).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="IsWeekend">Is it a weekend?</label>
+                <input type="number" id="IsWeekend" name="IsWeekend" min="0" max="1" required>
+                <span class="input-error" id="isWeekendError">Please enter 0 for weekdays or 1 for weekends.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="Month">Month of the Year</label>
+                <input type="number" id="Month" name="Month" min="1" max="12" required>
+                <span class="input-error" id="monthError">Please enter a valid month (1-12).</span>
+            </div>
+
+            <button type="submit" class="submit-btn">Predict Traffic</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result">
+            <h2>Predicted Number of Vehicles: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("predictionForm").addEventListener("submit", function(event) {
+            let isValid = true;
+
+            function validate(id, condition) {
+                const el = document.getElementById(id);
+                const err = document.getElementById(id + "Error");
+                if (!condition(el.value)) {
+                    err.style.display = "block";
+                    isValid = false;
+                } else {
+                    err.style.display = "none";
+                }
+            }
+
+            validate("Junction", val => val > 0);
+            validate("Hour", val => val >= 0 && val <= 23);
+            validate("DayOfWeek", val => val >= 0 && val <= 6);
+            validate("IsWeekend", val => val == 0 || val == 1);
+            validate("Month", val => val >= 1 && val <= 12);
+
+            if (!isValid) event.preventDefault();
+        });
+    </script>
+</body>
+</html>
