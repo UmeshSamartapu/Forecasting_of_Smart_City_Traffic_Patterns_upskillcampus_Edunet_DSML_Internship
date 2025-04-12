@@ -143,4 +143,22 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Render
 
-Feel free to edit and customize this README to fit any further specific needs of your project!
+## Demo 
+### You can watch the [youtube video](https://youtu.be/p1ls3xzZTwY) for demo
+<p align="center">
+  <img src="https://github.com/UmeshSamartapu/Deep-Fake-Detection/blob/main/static/images/DeepFakeDetectionDemo.gif" />
+</p>  
+
+
+## 📫 Let's Connect
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/umesh-samartapu-42793025a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white)](https://x.com/umeshsamartapu?t=graUTdTs4QlUc3a5OOH7hA&s=09)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:umeshsamartapu@gmail.com)
+[![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/umeshsamartapu?igsh=MWsxbWVzbHd0bDgyag==)
+[![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-FBAD19?style=flat-square&logo=buymeacoffee&logoColor=black)](https://www.buymeacoffee.com/umeshsamartapu)
+
+---
+
+🔥 Always exploring new technologies and solving real-world problems with code!
+
