@@ -52,7 +52,7 @@ source venv/bin/activate  # For Mac/Linux
 venv\Scripts\activate     # For Windows
 ```
 
-Install Dependencies:
+### Install Dependencies:
 
 Install the required Python libraries:
 
