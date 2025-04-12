@@ -26,7 +26,7 @@ The **Smart City Traffic Forecasting** project aims to predict traffic volume pa
 
 Follow the instructions below to set up the project locally.
 
-### Prerequisites
+### 1.Prerequisites
 
 Make sure you have the following installed:
 
@@ -35,7 +35,7 @@ Make sure you have the following installed:
 - Node.js (optional, for testing frontend locally)
 - Docker (optional, for containerized setup)
 
-### Clone the Repository
+### 2.Clone the Repository
 
 Clone the repository to your local machine using the following command:
 
@@ -44,7 +44,7 @@ git clone https://github.com/yourusername/smart-city-traffic-forecasting.git
 cd smart-city-traffic-forecasting
 ```
 ## Backend Setup
-### Create a Virtual Environment:
+### 1.Create a Virtual Environment:
 
 Create and activate a virtual environment to manage dependencies:
 
@@ -54,7 +54,7 @@ source venv/bin/activate  # For Mac/Linux
 venv\Scripts\activate     # For Windows
 ```
 
-### Install Dependencies:
+### 2.Install Dependencies:
 
 Install the required Python libraries:
 
@@ -70,7 +70,7 @@ uvicorn main:app --reload
 The API will be accessible at http://127.0.0.1:8000.
 ```
 
-## Frontend Setup
+## 3.Frontend Setup
 
 Description: Predicts the traffic volume based on input parameters.
 
@@ -142,16 +142,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - XGBoost
 
 - Render
-
-### Explanation:
-
-- **Overview**: Introduces the project and its purpose.
-- **Features**: Lists key features of the traffic forecasting system.
-- **Tools & Technologies**: Highlights the main tools used in the project.
-- **Getting Started**: Detailed instructions on setting up the project, including prerequisites, installation, and running the backend server.
-- **Frontend Setup**: Simple instructions for testing the frontend.
-- **API Endpoints**: Describes the POST request for traffic prediction.
-- **Contributing**: Instructions on how to contribute to the project.
-- **License**: Includes an open-source license section (MIT License).
 
 Feel free to edit and customize this README to fit any further specific needs of your project!
