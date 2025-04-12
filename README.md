@@ -146,7 +146,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Demo 
 ### You can watch the [youtube video](     ) for demo
 <p align="center">
-  <img src="https://github.com/UmeshSamartapu/Deep-Fake-Detection/blob/main/static/images/DeepFakeDetectionDemo.gif" />
+  <img src="      " />
 </p>  
 
 
