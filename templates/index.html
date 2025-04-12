@@ -3,110 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Traffic Prediction</title>
+    <title>Smart City Traffic AI • Forecast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2980b9;
-            --hover-color: #3498db;
+            --primary-bg: #0a192f;
+            --accent: #64ffda;
+            --card-bg: #172a45;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
             --error-color: #e74c3c;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto;
+            font-family: 'Roboto', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
             padding: 2rem;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 {
+        .dashboard {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .input-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            width: 100%;
+            max-width: 600px;
         }
 
-        .form-group {
+        .result-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .input-group {
             margin-bottom: 1.5rem;
         }
 
         label {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #34495e;
             display: block;
             margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        input[type="number"],
-        select {
+        input, select {
             width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border: 2px solid #ddd;
+            padding: 12px;
+            background: #0a192f;
+            border: 1px solid #233554;
             border-radius: 8px;
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
         }
 
-        input[type="number"]:focus,
-        select:focus {
+        input:focus, select:focus {
+            border-color: var(--accent);
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
-            background-color: #ecf6fd;
         }
 
         .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
+            background: var(--accent);
+            color: var(--primary-bg);
+            padding: 1rem 2rem;
             border: none;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
             width: 100%;
-            transition: all 0.3s ease;
-            touch-action: manipulation;
         }
 
-        .submit-btn:hover,
-        .submit-btn:active {
-            background-color: var(--hover-color);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .submit-btn:hover {
+            transform: translateY(-2px);
         }
 
-        .result {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2ecc71;
-            padding: 1rem;
-            border-radius: 8px;
-            background-color: #f0faf5;
-        }
-
-        .form-description {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
+        .traffic-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1rem 0;
         }
 
         .input-error {
@@ -120,130 +129,123 @@
             display: block;
         }
 
-        input.invalid,
-        select.invalid {
+        input.invalid, select.invalid {
             border-color: var(--error-color);
         }
 
-        @media (min-width: 768px) {
-            .container {
-                padding: 2.5rem;
-                margin: 3rem auto;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .form-group {
-                margin-bottom: 2rem;
-            }
-
-            label {
-                font-size: 1.1rem;
-            }
-
-            input[type="number"],
-            select {
-                padding: 1.2rem;
-                font-size: 1.1rem;
-            }
-
-            .submit-btn {
-                font-size: 1.2rem;
-                padding: 1.5rem;
-            }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
         }
 
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1000px;
+        .form-description {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .input-card,
+            .result-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Traffic Prediction</h1>
-        <p class="form-description">
-            Enter the details below to predict the traffic volume for a specific junction and time.<br>
-            All fields are required and must be within specified ranges.
-        </p>
+    <h1>🚦 Smart City Traffic AI</h1>
+    <p class="form-description">Enter the details below to predict traffic volume for optimized city planning</p>
 
-        <form id="predictionForm" action="/predict" method="post">
-            <div class="form-group">
-                <label for="Junction">Junction</label>
-                <select id="Junction" name="Junction" required>
-                    <option value="">Select Junction</option>
-                    <option value="1">Junction 1</option>
-                    <option value="2">Junction 2</option>
-                    <option value="3">Junction 3</option>
-                    <option value="4">Junction 4</option>
-                </select>
-                <span class="input-error" id="junctionError">Please select a junction (1-4).</span>
-            </div>
+    <div class="dashboard">
+        <div class="input-card">
+            <form id="predictionForm" action="/predict" method="post">
+                <div class="input-group">
+                    <label for="Junction">Junction</label>
+                    <select id="Junction" name="Junction" required>
+                        <option value="">Select Junction</option>
+                        <option value="1">Junction 1 - Downtown Core</option>
+                        <option value="2">Junction 2 - Financial District</option>
+                        <option value="3">Junction 3 - Tech Park</option>
+                        <option value="4">Junction 4 - Residential Zone</option>
+                    </select>
+                    <span class="input-error" id="junctionError">Please select a junction (1-4).</span>
+                </div>
 
-            <div class="form-group">
-                <label for="Hour">Hour of Day</label>
-                <input type="number" id="Hour" name="Hour" min="0" max="23" 
-                       placeholder="0-23 (0 = Midnight)" required
-                       inputmode="numeric">
-                <span class="input-error" id="hourError">Please enter a valid hour (0–23).</span>
-            </div>
+                <div class="input-group">
+                    <label for="Hour">Hour of Day</label>
+                    <input type="number" id="Hour" name="Hour" min="0" max="23" 
+                           placeholder="0-23 (0 = Midnight)" required
+                           inputmode="numeric">
+                    <span class="input-error" id="hourError">Please enter a valid hour (0–23).</span>
+                </div>
 
-            <div class="form-group">
-                <label for="DayOfWeek">Day of Week</label>
-                <select id="DayOfWeek" name="DayOfWeek" required>
-                    <option value="">Select Day</option>
-                    <option value="0">Monday</option>
-                    <option value="1">Tuesday</option>
-                    <option value="2">Wednesday</option>
-                    <option value="3">Thursday</option>
-                    <option value="4">Friday</option>
-                    <option value="5">Saturday</option>
-                    <option value="6">Sunday</option>
-                </select>
-                <span class="input-error" id="dayOfWeekError">Please select a valid day.</span>
-            </div>
+                <div class="input-group">
+                    <label for="DayOfWeek">Day of Week</label>
+                    <select id="DayOfWeek" name="DayOfWeek" required>
+                        <option value="">Select Day</option>
+                        <option value="0">Monday</option>
+                        <option value="1">Tuesday</option>
+                        <option value="2">Wednesday</option>
+                        <option value="3">Thursday</option>
+                        <option value="4">Friday</option>
+                        <option value="5">Saturday</option>
+                        <option value="6">Sunday</option>
+                    </select>
+                    <span class="input-error" id="dayOfWeekError">Please select a valid day.</span>
+                </div>
 
-            <div class="form-group">
-                <label for="IsWeekend">Is it a Weekend?</label>
-                <select id="IsWeekend" name="IsWeekend" required>
-                    <option value="">Select Option</option>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                </select>
-                <span class="input-error" id="isWeekendError">Please select an option.</span>
-            </div>
+                <div class="input-group">
+                    <label for="IsWeekend">Is it a Weekend?</label>
+                    <select id="IsWeekend" name="IsWeekend" required>
+                        <option value="">Select Option</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                    <span class="input-error" id="isWeekendError">Please select an option.</span>
+                </div>
 
-            <div class="form-group">
-                <label for="Month">Month</label>
-                <select id="Month" name="Month" required>
-                    <option value="">Select Month</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <span class="input-error" id="monthError">Please select a valid month.</span>
-            </div>
+                <div class="input-group">
+                    <label for="Month">Month</label>
+                    <select id="Month" name="Month" required>
+                        <option value="">Select Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <span class="input-error" id="monthError">Please select a valid month.</span>
+                </div>
 
-            <button type="submit" class="submit-btn">Predict Traffic</button>
-        </form>
-
-        {% if prediction is not none %}
-        <div class="result">
-            <h2>Predicted Number of Vehicles: {{ prediction }}</h2>
+                <button type="submit" class="submit-btn">Predict Traffic</button>
+            </form>
         </div>
-        {% endif %}
+
+        <div class="result-card {% if prediction is not none %}visible{% endif %}">
+            {% if prediction is not none %}
+            <h3>Predicted Traffic Volume</h3>
+            <div class="traffic-value">{{ prediction }}</div>
+            <small>vehicles per hour</small>
+            {% else %}
+            <h3>Awaiting Prediction</h3>
+            <div class="traffic-value">--</div>
+            <small>Submit parameters to view forecast</small>
+            {% endif %}
+        </div>
     </div>
 
     <script>
@@ -276,7 +278,6 @@
             }
         });
 
-        // Add real-time validation for number input
         document.getElementById('Hour').addEventListener('input', function(e) {
             const value = parseInt(e.target.value);
             const error = document.getElementById('hourError');
