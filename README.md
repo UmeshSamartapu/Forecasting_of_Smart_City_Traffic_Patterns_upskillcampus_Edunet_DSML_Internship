@@ -70,11 +70,6 @@ The API will be accessible at http://127.0.0.1:8000.
 
 ## Frontend Setup
 
-To test the frontend, simply open the index.html file in your browser. There is no need for a separate server unless you want to add dynamic JavaScript functionality.
-
-API Endpoints
-POST /predict
-
 Description: Predicts the traffic volume based on input parameters.
 
 Parameters:
@@ -101,14 +96,6 @@ Response: A JSON object containing the predicted number of vehicles.
   "DayOfWeek": 3,
   "IsWeekend": 0,
   "Month": 5
-}
-```
-
-### Example Response:
-
-```bash
-{
-  "predicted_traffic": 320
 }
 ```
 
