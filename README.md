@@ -4,6 +4,8 @@
 
 The **Smart City Traffic Forecasting** project aims to predict traffic volume patterns at key city junctions using machine learning. This tool is designed to help city planners and traffic authorities with infrastructure planning and efficient traffic management. The model predicts the expected traffic volume based on various parameters such as the hour of the day, the day of the week, whether it's a weekend, and the month of the year.
 
+🧪 **[Try the live app here](https://your-deployment-link.com)**
+
 ## Features
 
 - Predicts traffic volumes at specific junctions based on time, day, and other parameters.
