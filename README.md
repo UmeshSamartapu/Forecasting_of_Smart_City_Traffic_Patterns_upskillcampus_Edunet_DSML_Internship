@@ -93,10 +93,8 @@ Month (int): Month of the year (1–12)
 
 Response: A JSON object containing the predicted number of vehicles.
 
-Example Input:
+### Example Input:
 ```bash
-json
-Copy code
 {
   "Junction": 1,
   "Hour": 15,
@@ -108,7 +106,6 @@ Copy code
 
 ### Example Response:
 
-json
 ```bash
 {
   "predicted_traffic": 320
@@ -133,29 +130,29 @@ The backend will be accessible at http://localhost:8000.
 ## Contributing
 We welcome contributions! If you want to help improve the project, follow these steps:
 
-Fork the repository.
+- Fork the repository.
 
-Clone your fork to your local machine.
+- Clone your fork to your local machine.
 
-Create a new branch for your feature or bug fix.
+- Create a new branch for your feature or bug fix.
 
-Make your changes and commit them.
+- Make your changes and commit them.
 
-Push your changes to your forked repository.
+- Push your changes to your forked repository.
 
-Open a pull request.
+- Open a pull request.
 
 ### License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ### Acknowledgments
-FastAPI
+- FastAPI
 
-scikit-learn
+- scikit-learn
 
-XGBoost
+- XGBoost
 
-Render
+- Render
 
 ### Explanation:
 
