@@ -5,3 +5,4 @@ numpy
 pydantic
 jinja2
 xgboost
+python-multipart
