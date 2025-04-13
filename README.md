@@ -1,5 +1,7 @@
 # Smart City Traffic Forecasting🚦
 
+![Preview image](https://github.com/UmeshSamartapu/Forecasting_of_Smart_City_Traffic_Patterns_upskillcampus_Edunet_DSML_Internship/blob/main/templates/Smart%20City%20Traffic%20Forecasting%20pic.png)
+
 ## Overview
 
 The **Smart City Traffic Forecasting** project aims to predict traffic volume patterns at key city junctions using machine learning. This tool is designed to help city planners and traffic authorities with infrastructure planning and efficient traffic management. The model predicts the expected traffic volume based on various parameters such as the hour of the day, the day of the week, whether it's a weekend, and the month of the year.
@@ -146,7 +148,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Demo 
 ### You can watch the ([youtube video](https://www.youtube.com/watch?v=jnIj7d5-UtU)) for demo
 <p align="center">
-  <img src="https://github.com/UmeshSamartapu/Forecasting_of_Smart_City_Traffic_Patterns_upskillcampus_Edunet_DSML_Internship/blob/main/templates/%F0%9D%90%92%F0%9D%90%A6%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%20%F0%9D%90%82%F0%9D%90%A2%F0%9D%90%AD%F0%9D%90%B2%20%F0%9D%90%93%F0%9D%90%AB%F0%9D%90%9A%F0%9D%90%9F%F0%9D%90%9F%F0%9D%90%A2%F0%9D%90%9C%20%F0%9D%90%85%F0%9D%90%A8%F0%9D%90%AB%F0%9D%90%9E%F0%9D%90%9C%F0%9D%90%9A%F0%9D%90%AC%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%A0%20gif.gif" />
+  <img src="https://github.com/UmeshSamartapu/Forecasting_of_Smart_City_Traffic_Patterns_upskillcampus_Edunet_DSML_Internship/blob/main/templates/Smart%20City%20Traffic%20Forecasting%20gif.gif" />
 </p>  
 
 
