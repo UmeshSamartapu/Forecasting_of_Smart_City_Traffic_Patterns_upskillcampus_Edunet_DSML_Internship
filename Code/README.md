@@ -1,6 +1,6 @@
 # 🚗 Traffic Volume Prediction using Decision Trees
 
-This project focuses on **predicting vehicle traffic volume** at city junctions using a combination of **feature engineering** and **machine learning models** 
+This project focuses on **predicting vehicle traffic volume** at city junctions using a combination of **feature engineering** and **machine learning models  XGBoost Regressor.** 
 It includes **data preprocessing, feature selection, model training, evaluation, and model saving.**
 
 --
@@ -12,75 +12,75 @@ It includes **data preprocessing, feature selection, model training, evaluation,
 
 - **vehicle_model.pkl** - Trained model file saved for future use.
 
+- **submission.csv** – Final predictions for the test dataset.
+
 # 🔧 Features & Techniques Used
 
 - **Feature Engineering:**
 
-- Extracting year, month, day, weekday, time, week, quarter from timestamps.
+- Extracted Hour, DayOfWeek, IsWeekend, and Month from DateTime.
+  
+- Converted DateTime into UNIX time for feature importance analysis.
 
-- Converting datetime to UNIX time.
+- **Feature Importance:** Used ExtraTreesClassifier to identify key features impacting traffic volume.
 
-- **Feature Importance:** Using ExtraTreesClassifier to rank features.
+- **Modeling:** Trained an XGBoost Regressor for accurate traffic volume prediction.
 
-- **Modeling:** DecisionTreeClassifier for training and prediction.
+- **Evaluation:** Model performance measured using Mean Absolute Error (MAE).
 
-- **Evaluation:** Calculated MAE, MSE, and RMSE scores.
+- **Visualization:** Feature importance bar chart. Histogram of vehicle counts.Traffic trends across junctions.
 
 - **Model Deployment:** Saved trained model using Joblib.
 
 
 # 📊 Data Preprocessing
 
-- **DateTime Parsing:** Convert DateTime columns from string to Python datetime objects.
+- **DateTime Parsing:** Converted string DateTime fields into Python datetime objects.
 
-- **Feature Extraction:** Year, Month, Day, Hour, Weekday, Week, Quarter
+- **Feature Extraction:** Extracted: Hour, DayOfWeek, IsWeekend, Month.
 
-- **UNIX Timestamp:** DateTime converted to seconds for model training.
+- **Feature Engineering:** IsWeekend derived based on DayOfWeek.DateTime transformed to UNIX time for feature analysis.
 
 # 🧠 Model Training
 
-- **Feature Selection:** ExtraTreesClassifier is used to find the most important features.
+- **Feature Selection:** Used key features: Junction, Hour, DayOfWeek, IsWeekend, Month.
 
-- **Model:** DecisionTreeClassifier is trained with the processed features.
+- **Model:** XGBoost Regressor trained on extracted features.
 
-- **Evaluation Metrics:**
+- **Evaluation Metrics:** Mean Absolute Error (MAE) was computed for validation set.
 
-- MAE (Mean Absolute Error)
-
-- MSE (Mean Squared Error)
-
-- RMSE (Root Mean Squared Error)
 
 Example Output:
 ```bash
-MAE: 8.31
-MSE: 134.72
-RMSE: 11.61
+Mean Absolute Error (MAE) on validation set: 8.31
 ``
 
 # 📈 Visualizations
 
-- Feature Importance Bar Chart
+- **Feature Importance Bar Chart** – Top features influencing traffic.
 
-- Traffic Volume Histogram
+- **Histogram of Vehicle Counts** – Distribution of traffic volume.
 
-- Traffic Trends by Junctions
+- **Traffic Volume Trends by Junctions** – Line plot combining training and prediction data.
 
 # 💾 Saving the Model
-After training, the Decision Tree Regressor model is saved using Joblib:
+After training, the XGBoost model is saved as:
 ```bash
 import joblib
-joblib.dump(model, "vehicle_model.pkl")
+joblib.dump(model, "traffic_forecasting_model.pkl")
 ```
 
 # 📦 How the Prediction Works
-1.Preprocess the test data with the same transformations as training.
 
-2.Load the trained model (vehicle_model.pkl).
+1.Preprocess the test dataset using the same transformations.
 
-3.Predict the vehicle volume for unseen data.
+2.Load the saved model traffic_forecasting_model.pkl.
 
-4.Combine and plot the predictions.
+3.Predict the traffic volume on test data.
+
+4.Save the final predictions into submission.csv.
+
+5.Visualize the combined traffic volume.
 
 # 🛠 Requirements
 - Python 3.8+
@@ -95,19 +95,22 @@ joblib.dump(model, "vehicle_model.pkl")
 
 - scikit-learn
 
+- xgboost
+
 - joblib
 ```
 
 # 📜 Important Notes
 
-- Always ensure that the datetime columns are parsed correctly.
+- Always apply the same feature extraction steps to both training and test datasets.
 
-- Make sure that feature engineering steps match exactly between train and test datasets.
+- Make sure DateTime parsing is correct (use dayfirst=True).
 
-- Set the same random seeds (e.g., random_state=42) to reproduce results.
+- Set a fixed random_state for reproducible results.
 
-# 🤝 Contributions
-- Feel free to fork, improve, and submit pull requests to enhance this project!
+- Fine-tune XGBoost hyperparameters for further performance improvement.
+
+
 
 # ✨ Acknowledgements
 Special thanks to:
