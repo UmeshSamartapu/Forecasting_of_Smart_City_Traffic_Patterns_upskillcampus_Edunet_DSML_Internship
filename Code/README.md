@@ -1,4 +1,4 @@
-# 🚗 Traffic Volume Prediction using Decision Trees
+# 🚦 Traffic Pattern Forecasting Report for Smart City Initiative
 
 This project focuses on **predicting vehicle traffic volume** at city junctions using a combination of **feature engineering** and **machine learning models  XGBoost Regressor.** 
 It includes **data preprocessing, feature selection, model training, evaluation, and model saving.**
