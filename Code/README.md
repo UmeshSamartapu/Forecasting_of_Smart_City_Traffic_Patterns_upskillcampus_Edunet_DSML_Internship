@@ -107,11 +107,7 @@ joblib.dump(model, "vehicle_model.pkl")
 - Set the same random seeds (e.g., random_state=42) to reproduce results.
 
 # 🤝 Contributions
-Feel free to fork, improve, and submit pull requests to enhance this project!
-
-# 📃 License
-This project is licensed under the MIT License.
-See the LICENSE file for details.
+- Feel free to fork, improve, and submit pull requests to enhance this project!
 
 # ✨ Acknowledgements
 Special thanks to:
