@@ -60,10 +60,6 @@
 - **Algorithms Considered:**
   - ✅ **XGBoost Regressor** (Selected)
   - LSTM Neural Network
-  - Prophet Time Series Model
-- **Selection Rationale:**
-  - MAE = 9.2 with good inference speed
-  - Handles missing values & mixed data types
 - **Libraries:** `XGBoost`, `scikit-learn`
 
 ---
