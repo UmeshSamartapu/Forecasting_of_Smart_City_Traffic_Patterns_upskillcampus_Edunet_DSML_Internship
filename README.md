@@ -77,7 +77,7 @@
     'subsample': 0.8,
     'colsample_bytree': 0.9
   }
-```
+
 - *Tools:* scikit-learn, XGBoost
 
 ## 📏 8. Model Evaluation
