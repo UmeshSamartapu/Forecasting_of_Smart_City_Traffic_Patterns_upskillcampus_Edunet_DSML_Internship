@@ -3,7 +3,6 @@
 This project focuses on **predicting vehicle traffic volume** at city junctions using a combination of **feature engineering** and **machine learning models  XGBoost Regressor.** 
 It includes **data preprocessing, feature selection, model training, evaluation, and model saving.**
 
---
 
 # 📂 Project Structure
 - **Train.csv** - Training data with traffic volume at different junctions.
