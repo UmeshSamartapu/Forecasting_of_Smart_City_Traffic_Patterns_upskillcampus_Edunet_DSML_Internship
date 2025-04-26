@@ -1,4 +1,4 @@
-# Smart City Traffic Forecasting🚦
+# 🚦 Traffic Pattern Forecasting Report for Smart City Initiative
 
 ![Preview image](https://github.com/UmeshSamartapu/Forecasting_of_Smart_City_Traffic_Patterns_upskillcampus_Edunet_DSML_Internship/blob/main/templates/Smart%20City%20Traffic%20Forecasting%20pic.png)
 
